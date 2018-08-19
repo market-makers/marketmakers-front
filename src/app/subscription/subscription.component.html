@@ -2,52 +2,67 @@
   <div class="row">
     <div class="col-md-6">
       <h1>Acessar</h1>
-        <form autocomplete="off">
+        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLogin()">
             <div class="form-group">
-              <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" placeholder="E-mail">
+              <label for="email_login">E-mail</label>
+              <input type="email" class="form-control" id="email_login" formControlName="email" placeholder="E-mail">
             </div>
             <div class="form-group">
-              <label for="senha">Senha</label>
-              <input type="password" class="form-control" id="password">
+              <label for="password_login">Senha</label>
+              <input type="password" class="form-control" id="password_login" formControlName="password">
             </div>
             <input type="submit" value="Acessar" class="btn btn-success">
           </form>
     </div>
     <div class="col-md-6">
       <h1>Cadastre-se</h1>
-        <form>
+        <div class="alert alert-success" *ngIf="submited">
+          Cadastro realizado com sucesso!
+        </div>
+        <form [formGroup]="companyForm" (ngSubmit)="onSubmit()" *ngIf="!submited">
             <div class="form-group">
               <label for="name">Nome</label>
-              <input type="text" class="form-control" id="name" placeholder="Nome da sua empresa">
+              <input type="text" class="form-control" id="name" formControlName="name" placeholder="Nome da sua empresa">
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" placeholder="E-mail de contato">
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="E-mail de contato">
             </div>
             <div class="form-group">
-              <label for="razao_social">Razão Social</label>
-              <input type="text" class="form-control" id="razao_social" placeholder="Razão Social da Empresa">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="">
+              </div>
+            <div class="form-group">
+              <label for="companyName">Razão Social</label>
+              <input type="text" class="form-control" id="companyName" formControlName="companyName" placeholder="Razão Social da Empresa">
             </div>
             <div class="form-group">
-              <label for="endereco_logradouro">Endereço</label>
-              <input type="text" class="form-control" id="endereco_logradouro" placeholder="Ex.: Rua Santo Antonio, 123">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" class="form-control" id="cnpj" formControlName="cnpj" placeholder="Razão Social da Empresa">
+              </div>
+            <div class="form-group">
+              <label for="street">Endereço</label>
+              <input type="text" class="form-control" id="street" formControlName="street" placeholder="Ex.: Rua Santo Antonio, 123">
             </div>
             <div class="form-group">
-              <label for="endereco_complemento">Complemento</label>
-              <input type="text" class="form-control" id="endereco_complemento" placeholder="">
+              <label for="complement">Complemento</label>
+              <input type="text" class="form-control" id="complement" formControlName="complement" placeholder="">
             </div>
             <div class="form-group">
-              <label for="endereco_cidade">Cidade</label>
-              <input type="text" class="form-control" id="endereco_cidade" placeholder="">
+                <label for="neighborhood">Bairro</label>
+                <input type="text" class="form-control" id="neighborhood" formControlName="neighborhood" placeholder="">
+              </div>
+            <div class="form-group">
+              <label for="city">Cidade</label>
+              <input type="text" class="form-control" id="city" formControlName="city" placeholder="">
             </div>
             <div class="form-group">
-              <label for="endereco_estado">Estado</label>
-              <input type="text" class="form-control" id="endereco_estado" placeholder="">
+              <label for="state">Estado</label>
+              <input type="text" class="form-control" id="state" formControlName="state" placeholder="">
             </div>
             <div class="form-group">
-              <label for="endereco_cep">CEP</label>
-              <input type="text" class="form-control" id="endereco_cep" placeholder="">
+              <label for="zipCode">CEP</label>
+              <input type="text" class="form-control" id="zipCode" formControlName="zipCode" placeholder="">
             </div>
             <input type="submit" value="Cadastrar" class="btn btn-success">
           </form>
