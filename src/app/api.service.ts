@@ -13,8 +13,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ApiService {
-  private endpoint: String = 'http://192.168.25.44:8080';
-  // private endpoint: String = 'https://api.marketmakersapp.club';
+  // private endpoint: String = 'http://192.168.25.44:8080';
+  private endpoint: String = 'https://api.marketmakersapp.club';
 
   constructor(private http: HttpClient) {
   }
