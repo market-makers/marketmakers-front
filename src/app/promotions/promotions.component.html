@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Promoções</h1>
+          <div class="alert alert-success" *ngIf="submited">
+            Cadastro realizado com sucesso!
+          </div>
+          <form [formGroup]="promotionForm" (ngSubmit)="onSubmit()" *ngIf="!submited">
+              <div class="form-group">
+                <label for="title">Título</label>
+                <input type="text" class="form-control" id="title" formControlName="title" placeholder="Título da promoção">
+              </div>
+              <div class="form-group">
+                <label for="description">Descrição</label>
+                <textarea class="form-control" id="description" formControlName="description" placeholder="Descrição da promoção"></textarea>
+              </div>
+              <div class="form-group">
+                  <label for="coupons">Quantidade de Cupons</label>
+                  <input type="number" class="form-control" id="coupons" formControlName="coupons" placeholder="">
+                </div>
+              <div class="form-group">
+                <label for="value">Percentual de desconto: (ex.: 10 para 10%)</label>
+                <input type="number" class="form-control" id="value" formControlName="value" placeholder="">
+              </div>
+              <div class="form-group">
+                  <label for="dots">Quantidade de pontos para ativar a promoção: (ex.: 100)</label>
+                  <input type="number" class="form-control" id="dots" formControlName="dots" placeholder="">
+                </div>
+              <input type="submit" value="Cadastrar" class="btn btn-success">
+            </form>
+      </div>
+    </div>
+  </div>
+  

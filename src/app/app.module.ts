@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { PromotionsComponent } from './promotions/promotions.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HomeComponent,
     SubscriptionComponent,
     DashboardComponent,
+    PromotionsComponent,
   ],
   imports: [
     HttpClientModule,
