@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SubscriptionComponent } from './subscription/subscription.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { SubscriptionComponent } from './subscription/subscription.component';
     HeaderComponent,
     HomeComponent,
     SubscriptionComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
