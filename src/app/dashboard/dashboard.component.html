@@ -14,20 +14,10 @@
                   <th>Quant.</th>
                   <th>R$ Médio</th>
                 </tr>
-                <tr>
-                  <td>Cerveja Premium</td>
-                  <td>2938</td>
-                  <td>R$ 9,68</td>
-                </tr>
-                <tr>
-                  <td>Pão Francês</td>
-                  <td>1876</td>
-                  <td>R$ 13,25</td>
-                </tr>
-                <tr>
-                  <td>Vinho Tinto Cabernet Suavignon - Concha & Toro - Chile</td>
-                  <td>247</td>
-                  <td>R$ 32,71</td>
+                <tr *ngFor="let product of productsBestsellers">
+                  <td>{{product.name}}</td>
+                  <td>{{product.amount}}</td>
+                  <td>{{product.averagePrice | currency:'BRL'}}</td>
                 </tr>
               </table>
             </div>
@@ -39,20 +29,10 @@
                     <th>Quant.</th>
                     <th>R$ Médio</th>
                   </tr>
-                  <tr>
-                    <td>Refrigerantes 2L</td>
-                    <td>112837</td>
-                    <td>R$ 5,76</td>
-                  </tr>
-                  <tr>
-                    <td>Cervejas</td>
-                    <td>92837</td>
-                    <td>R$ 4,76</td>
-                  </tr>
-                  <tr>
-                    <td>Higiene Pessoal</td>
-                    <td>8761</td>
-                    <td>R$ 12,16</td>
+                  <tr *ngFor="let category of categoriesBestsellers">
+                    <td>{{category.name}}</td>
+                    <td>{{category.amount}}</td>
+                    <td>{{category.averagePrice | currency:'BRL'}}</td>
                   </tr>
                 </table>
             </div>
@@ -67,20 +47,10 @@
                     <th>Quant. vendida na região</th>
                     <th>R$ Médio</th>
                   </tr>
-                  <tr>
-                    <td>Vinho Tinto Carmenere - Africa do Sul</td>
-                    <td>392</td>
-                    <td>R$ 75,49</td>
-                  </tr>
-                  <tr>
-                    <td>Queijo Italiano</td>
-                    <td>52</td>
-                    <td>R$ 240,99</td>
-                  </tr>
-                  <tr>
-                    <td>Pilha Alcalina Duracell</td>
-                    <td>50</td>
-                    <td>R$ 9,99</td>
+                  <tr *ngFor="let product of productsMissing">
+                    <td>{{product.name}}</td>
+                    <td>{{product.amount}}</td>
+                    <td>{{product.averagePrice | currency:'BRL'}}</td>
                   </tr>
                 </table>
             </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from '../products.service';
 
 declare var Chart: any;
 
@@ -9,17 +10,38 @@ declare var Chart: any;
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  productsBestsellers: any[];
+  productsMissing: any[];
+  categoriesBestsellers: any[];
+
+  constructor(private productsService: ProductsService) { 
+  }
 
   ngOnInit() {
+      this.productsService.list().subscribe((response: any) => {
+        this.productsBestsellers = response;
+      });
+      this.productsService.category().subscribe((response: any) => {
+        this.categoriesBestsellers = response;
+        this.graph();
+      });
+      this.productsService.missing().subscribe((response: any) => {
+        this.productsMissing = response;
+      });
+  }
+
+  graph() {
+    let labels: string[] = this.categoriesBestsellers.map((cat) => cat.name);
+    let values: string[] = this.categoriesBestsellers.map((cat) => cat.amount);
+    
     var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["Refrigerantes", "Cervejas", "Higiene Pessoal"],
+            labels: labels,
             datasets: [{
                 label: 'Quantidade vendida',
-                data: [112837, 92837, 8761],
+                data: values,
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
